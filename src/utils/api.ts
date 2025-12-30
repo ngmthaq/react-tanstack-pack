@@ -5,7 +5,7 @@ export class Api {
 
   public constructor() {
     this.instance = axios.create();
-    this.instance.defaults.baseURL = import.meta.env.VITE_API_BASE_URL;
+    this.instance.defaults.baseURL = window.__ENV__.VITE_PUBLIC_API_BASE_URL;
     this.instance.defaults.timeout = 30000;
   }
 

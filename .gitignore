@@ -10,7 +10,11 @@ lerna-debug.log*
 node_modules
 dist
 dist-ssr
+tmp
 *.local
+
+public/version.json
+public/env.json
 
 # Editor directories and files
 .vscode/*
@@ -27,3 +31,7 @@ dist-ssr
 # Storybook
 *storybook.log
 storybook-static
+
+# Certificates
+.certs/**/*
+!.certs/.gitkeep

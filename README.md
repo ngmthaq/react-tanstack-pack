@@ -56,7 +56,6 @@ A modern, fully-featured React application built with the TanStack ecosystem, Ty
 
 ```
 src/
-├── api/             # API services and configurations
 ├── assets/          # Static assets (CSS, images)
 ├── components/      # Reusable UI components
 ├── constants/       # Application constants
@@ -68,6 +67,7 @@ src/
 ├── queries/         # TanStack Query queries
 ├── routes/          # Route components
 ├── stores/          # Jotai atoms and stores
+├── types/           # TypeScript type definitions
 └── utils/           # Utility functions
 ```
 
@@ -182,7 +182,7 @@ Built with TanStack Router for type-safe routing:
 - API endpoints in `src/constants/apiEndpoints.ts`
 - Query keys in `src/queries/` (defined within query files)
 - Mutation keys in `src/mutations/` (defined within mutation files)
-- API setup in `src/api/api.ts`
+- API setup in `src/utils/api.ts`
 
 ### Usage
 

@@ -2,6 +2,7 @@ import * as i18next from "i18next";
 import { useEffect, type FC, type PropsWithChildren } from "react";
 import { initReactI18next, useTranslation } from "react-i18next";
 import { STORAGE_KEYS } from "@/constants";
+import { getStorageItem, setStorageItem } from "@/utils";
 import { i18nConfig } from "./i18nConfig";
 
 i18next.use(initReactI18next).init(i18nConfig);
@@ -16,17 +17,19 @@ export const AppLocalizationProvider: FC<PropsWithChildren> = ({
 
   useEffect(() => {
     const storedLanguage =
-      localStorage.getItem(STORAGE_KEYS.language) || i18nConfig.fallbackLng;
+      getStorageItem<string>(STORAGE_KEYS.language) || i18nConfig.fallbackLng;
 
     if (storedLanguage !== i18n.language) {
       i18n.changeLanguage(String(storedLanguage));
+      document.documentElement.lang = storedLanguage as string;
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
-      localStorage.setItem(STORAGE_KEYS.language, lng);
+      document.documentElement.lang = lng as string;
+      setStorageItem(STORAGE_KEYS.language, lng);
       i18nBroadcastChannel.postMessage({ language: lng });
     };
 
@@ -41,7 +44,8 @@ export const AppLocalizationProvider: FC<PropsWithChildren> = ({
     const handleLanguageChange = (event: MessageEvent) => {
       const newLanguage = event.data?.language || i18nConfig.fallbackLng;
       if (newLanguage && newLanguage !== i18n.language) {
-        i18n.changeLanguage(event.data.language);
+        i18n.changeLanguage(newLanguage);
+        document.documentElement.lang = newLanguage as string;
       }
     };
 

@@ -15,12 +15,12 @@ function RootComponent() {
   return (
     <AppStoreProvider>
       <AppLocalizationProvider>
-        <AppThemeProvider>
-          <AppQueryProvider>
+        <AppQueryProvider>
+          <AppThemeProvider>
             <Outlet />
             <TanStackRouterDevtools position="bottom-right" />
-          </AppQueryProvider>
-        </AppThemeProvider>
+          </AppThemeProvider>
+        </AppQueryProvider>
       </AppLocalizationProvider>
     </AppStoreProvider>
   );

@@ -1,15 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
 import * as Yup from "yup";
-import { api } from "@/api";
 import { API_ENDPOINTS } from "@/constants";
 import type { PostFormSchema } from "@/forms";
+import { api } from "@/utils";
 
 export const createPostResponseSchema = Yup.object({
   id: Yup.string().required(),
   title: Yup.string().required(),
   body: Yup.string().required(),
   userId: Yup.number().required(),
-});
+}).required();
 
 export function useCreatePost() {
   return useMutation({

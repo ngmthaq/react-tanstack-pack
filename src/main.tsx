@@ -10,6 +10,12 @@ declare module "@tanstack/react-router" {
   }
 }
 
+declare global {
+  interface Window {
+    __ENV__: Record<string, string>;
+  }
+}
+
 createRoot(document.getElementById("root")!).render(
   <RouterProvider router={router} />,
 );

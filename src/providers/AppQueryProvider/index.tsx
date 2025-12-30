@@ -11,8 +11,8 @@ export const AppQueryProvider: FC<PropsWithChildren> = ({ children }) => {
         <>
           <style>
             {`.tsqd-open-btn-container {
-          bottom: 52px;
-        }`}
+                bottom: 52px;
+              }`}
           </style>
           <ReactQueryDevtools client={queryClient} initialIsOpen={false} />
         </>

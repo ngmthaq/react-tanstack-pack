@@ -1,8 +1,8 @@
 import * as i18next from "i18next";
 import { useEffect, type FC, type PropsWithChildren } from "react";
 import { initReactI18next, useTranslation } from "react-i18next";
-import { StorageKeys } from "@/configs";
-import { i18nConfig } from "./configs";
+import { STORAGE_KEYS } from "@/constants";
+import { i18nConfig } from "./i18nConfig";
 
 i18next.use(initReactI18next).init(i18nConfig);
 
@@ -16,7 +16,7 @@ export const AppLocalizationProvider: FC<PropsWithChildren> = ({
 
   useEffect(() => {
     const storedLanguage =
-      localStorage.getItem(StorageKeys.LANGUAGE) || i18nConfig.fallbackLng;
+      localStorage.getItem(STORAGE_KEYS.language) || i18nConfig.fallbackLng;
 
     if (storedLanguage !== i18n.language) {
       i18n.changeLanguage(String(storedLanguage));
@@ -26,7 +26,7 @@ export const AppLocalizationProvider: FC<PropsWithChildren> = ({
 
   useEffect(() => {
     const handleLanguageChange = (lng: string) => {
-      localStorage.setItem(StorageKeys.LANGUAGE, lng);
+      localStorage.setItem(STORAGE_KEYS.language, lng);
       i18nBroadcastChannel.postMessage({ language: lng });
     };
 

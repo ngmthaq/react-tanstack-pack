@@ -1,4 +1,3 @@
-import type { FC, PropsWithChildren } from "react";
 import dayjs from "dayjs";
 import advancedFormat from "dayjs/plugin/advancedFormat";
 import arraySupport from "dayjs/plugin/arraySupport";
@@ -28,8 +27,6 @@ import utc from "dayjs/plugin/utc";
 import weekday from "dayjs/plugin/weekday";
 import weekOfYear from "dayjs/plugin/weekOfYear";
 import weekYear from "dayjs/plugin/weekYear";
-import "dayjs/locale/en";
-import "dayjs/locale/vi";
 
 dayjs.extend(advancedFormat);
 dayjs.extend(arraySupport);
@@ -60,6 +57,4 @@ dayjs.extend(weekOfYear);
 dayjs.extend(weekYear);
 dayjs.extend(weekday);
 
-export const AppDatetimeProvider: FC<PropsWithChildren> = ({ children }) => {
-  return children;
-};
+export const date = dayjs;

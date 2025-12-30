@@ -1,7 +1,6 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import {
-  AppDatetimeProvider,
   AppLocalizationProvider,
   AppQueryProvider,
   AppStoreProvider,
@@ -15,16 +14,14 @@ export const Route = createRootRoute({
 function RootComponent() {
   return (
     <AppStoreProvider>
-      <AppDatetimeProvider>
-        <AppLocalizationProvider>
-          <AppThemeProvider>
-            <AppQueryProvider>
-              <Outlet />
-              <TanStackRouterDevtools position="bottom-right" />
-            </AppQueryProvider>
-          </AppThemeProvider>
-        </AppLocalizationProvider>
-      </AppDatetimeProvider>
+      <AppLocalizationProvider>
+        <AppThemeProvider>
+          <AppQueryProvider>
+            <Outlet />
+            <TanStackRouterDevtools position="bottom-right" />
+          </AppQueryProvider>
+        </AppThemeProvider>
+      </AppLocalizationProvider>
     </AppStoreProvider>
   );
 }

@@ -1,6 +1,8 @@
 import { type InitOptions } from "i18next";
-import en from "@/assets/lang/en.json";
-import vi from "@/assets/lang/vi.json";
+import en from "./lang/en.json";
+import vi from "./lang/vi.json";
+import "dayjs/locale/en";
+import "dayjs/locale/vi";
 
 export type I18nOptions = Required<
   Pick<

@@ -56,31 +56,18 @@ A modern, fully-featured React application built with the TanStack ecosystem, Ty
 
 ```
 src/
-├── assets/           # Static assets
-│   ├── css/         # Global styles
-│   └── lang/        # Translation files
+├── api/             # API services and configurations
+├── assets/          # Static assets (CSS, images)
 ├── components/      # Reusable UI components
-├── configs/         # Configuration files
-│   ├── api-endpoints.ts
-│   ├── mutation-keys.ts
-│   ├── query-keys.ts
-│   └── storage-keys.ts
+├── constants/       # Application constants
+├── forms/           # Form-related utilities
 ├── hooks/           # Custom React hooks
 ├── layouts/         # Layout components
+├── mutations/       # TanStack Query mutations
 ├── providers/       # Context providers
-│   ├── AppDatetimeProvider/
-│   ├── AppLocalizationProvider/
-│   ├── AppQueryProvider/
-│   ├── AppStoreProvider/
-│   └── AppThemeProvider/
+├── queries/         # TanStack Query queries
 ├── routes/          # Route components
-│   ├── __root.tsx   # Root layout
-│   ├── index.tsx    # Home route
-│   └── home/
-├── services/        # API services
-│   ├── mutations/   # TanStack Query mutations
-│   ├── queries/     # TanStack Query queries
-│   └── stores/      # Jotai atoms and stores
+├── stores/          # Jotai atoms and stores
 └── utils/           # Utility functions
 ```
 
@@ -158,7 +145,7 @@ The app supports multiple languages using i18next:
 - **English** (`en.json`)
 - **Vietnamese** (`vi.json`)
 
-Translation files are located in `src/assets/lang/`. To add new translations:
+Translation files are located in `src/providers/AppLocalizationProvider/lang/`. To add new translations:
 
 1. Add keys to both language files
 2. Use the `useTranslation` hook in components
@@ -169,14 +156,14 @@ Translation files are located in `src/assets/lang/`. To add new translations:
 ### Global State (Jotai)
 
 - Atomic state management with Jotai
-- Store definitions in `src/services/stores/`
+- Store definitions in `src/stores/`
 - Provider setup in `src/providers/AppStoreProvider/`
 
 ### Server State (TanStack Query)
 
 - Data fetching and caching with TanStack Query
-- Query definitions in `src/services/queries/`
-- Mutation definitions in `src/services/mutations/`
+- Query definitions in `src/queries/`
+- Mutation definitions in `src/mutations/`
 - Configuration in `src/providers/AppQueryProvider/`
 
 ## 🛣️ Routing
@@ -192,9 +179,10 @@ Built with TanStack Router for type-safe routing:
 
 ### Configuration
 
-- API endpoints in `src/configs/api-endpoints.ts`
-- Query keys in `src/configs/query-keys.ts`
-- Mutation keys in `src/configs/mutation-keys.ts`
+- API endpoints in `src/constants/apiEndpoints.ts`
+- Query keys in `src/queries/` (defined within query files)
+- Mutation keys in `src/mutations/` (defined within mutation files)
+- API setup in `src/api/api.ts`
 
 ### Usage
 

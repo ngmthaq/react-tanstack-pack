@@ -8,6 +8,7 @@ export class EventBus {
   public on(event: string, listener: CallableFunction) {
     if (!this.events.has(event)) this.events.set(event, new Set());
     this.events.get(event)?.add(listener);
+    return () => this.off(event, listener);
   }
 
   public off(event: string, listener: CallableFunction) {

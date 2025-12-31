@@ -6,3 +6,4 @@ export * from "./exceptions";
 export * from "./file";
 export * from "./storage";
 export * from "./text";
+export * from "./debugger";

@@ -13,3 +13,6 @@ export * from "./AppLocalizationProvider/i18nConfig";
 // AppStoreProvider
 export * from "./AppStoreProvider";
 export * from "./AppStoreProvider/store";
+
+// AppAgGridProvider
+export * from "./AppAgGridProvider";

@@ -1,6 +1,7 @@
 import { Outlet, createRootRoute } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 import {
+  AppAgGridProvider,
   AppLocalizationProvider,
   AppQueryProvider,
   AppStoreProvider,
@@ -17,8 +18,10 @@ function RootComponent() {
       <AppLocalizationProvider>
         <AppQueryProvider>
           <AppThemeProvider>
-            <Outlet />
-            <TanStackRouterDevtools position="bottom-right" />
+            <AppAgGridProvider>
+              <Outlet />
+              <TanStackRouterDevtools position="bottom-right" />
+            </AppAgGridProvider>
           </AppThemeProvider>
         </AppQueryProvider>
       </AppLocalizationProvider>

@@ -7,8 +7,12 @@ import { store } from "./store";
 export const AppStoreProvider: FC<PropsWithChildren> = ({ children }) => {
   return (
     <Provider store={store}>
-      <style>{css}</style>
-      <DevTools store={store} />
+      {import.meta.env.DEV && (
+        <>
+          <style>{css}</style>
+          <DevTools store={store} />
+        </>
+      )}
       {children}
     </Provider>
   );

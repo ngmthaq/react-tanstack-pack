@@ -59,7 +59,7 @@ src/
 ├── assets/          # Static assets (CSS, images)
 ├── components/      # Reusable UI components
 ├── constants/       # Application constants
-├── forms/           # Form-related utilities
+├── forms/           # Formik and Yup schema for validation
 ├── hooks/           # Custom React hooks
 ├── layouts/         # Layout components
 ├── mutations/       # TanStack Query mutations

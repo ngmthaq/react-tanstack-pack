@@ -1,5 +1,5 @@
 import { FILE_CONFIGS } from "@/constants";
-import type { FileSizeUnit } from "@/types/common";
+import type { FileSizeUnit } from "@/types";
 
 export function downloadFile(file: Blob, filename: string) {
   const url = window.URL.createObjectURL(file);

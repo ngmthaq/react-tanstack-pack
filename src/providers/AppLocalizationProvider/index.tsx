@@ -1,5 +1,5 @@
 import * as i18next from "i18next";
-import { useEffect, type FC, type PropsWithChildren } from "react";
+import { useEffect, type PropsWithChildren } from "react";
 import { initReactI18next, useTranslation } from "react-i18next";
 import { STORAGE_KEYS } from "@/constants";
 import { getStorageItem, setStorageItem } from "@/utils";
@@ -10,9 +10,7 @@ i18next.use(initReactI18next).init(i18nConfig);
 const i18nBroadcastChannelName = "AppLocalizationProviderI18nBroadcastChannel";
 const i18nBroadcastChannel = new BroadcastChannel(i18nBroadcastChannelName);
 
-export const AppLocalizationProvider: FC<PropsWithChildren> = ({
-  children,
-}) => {
+export function AppLocalizationProvider({ children }: PropsWithChildren) {
   const { i18n } = useTranslation();
 
   useEffect(() => {
@@ -57,4 +55,4 @@ export const AppLocalizationProvider: FC<PropsWithChildren> = ({
   });
 
   return children;
-};
+}

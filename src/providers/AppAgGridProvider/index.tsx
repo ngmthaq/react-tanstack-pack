@@ -5,9 +5,9 @@ import {
   provideGlobalGridOptions,
   themeMaterial,
 } from "ag-grid-community";
-import { useEffect, type FC, type PropsWithChildren } from "react";
+import { useEffect, type PropsWithChildren } from "react";
 
-export const AppAgGridProvider: FC<PropsWithChildren> = ({ children }) => {
+export function AppAgGridProvider({ children }: PropsWithChildren) {
   const theme = useTheme();
 
   useEffect(() => {
@@ -24,4 +24,4 @@ export const AppAgGridProvider: FC<PropsWithChildren> = ({ children }) => {
   }, [theme]);
 
   return children;
-};
+}

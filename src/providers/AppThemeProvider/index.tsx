@@ -1,7 +1,7 @@
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { LocalizationProvider } from "@mui/x-date-pickers";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { useMemo, type FC, type PropsWithChildren } from "react";
+import { useMemo, type PropsWithChildren } from "react";
 import { useThemeStore } from "@/stores";
 import { theme as defaultTheme } from "./theme";
 import "@fontsource/roboto/300.css";
@@ -9,7 +9,7 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 
-export const AppThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+export function AppThemeProvider({ children }: PropsWithChildren) {
   const { theme: currentTheme } = useThemeStore();
   const theme = useMemo(() => {
     return currentTheme || defaultTheme;
@@ -23,4 +23,4 @@ export const AppThemeProvider: FC<PropsWithChildren> = ({ children }) => {
       </LocalizationProvider>
     </ThemeProvider>
   );
-};
+}

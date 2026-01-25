@@ -1,10 +1,10 @@
-import type { FC, PropsWithChildren } from "react";
+import type { PropsWithChildren } from "react";
 import { Provider } from "jotai";
 import { DevTools } from "jotai-devtools";
 import css from "jotai-devtools/styles.css?inline";
 import { store } from "./store";
 
-export const AppStoreProvider: FC<PropsWithChildren> = ({ children }) => {
+export function AppStoreProvider({ children }: PropsWithChildren) {
   return (
     <Provider store={store}>
       {import.meta.env.DEV && (
@@ -16,4 +16,4 @@ export const AppStoreProvider: FC<PropsWithChildren> = ({ children }) => {
       {children}
     </Provider>
   );
-};
+}

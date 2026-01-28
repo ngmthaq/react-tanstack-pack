@@ -1,7 +1,7 @@
 import localforage from "localforage";
 import { CACHE_CONFIGS } from "@/constants";
 
-export type CacheStoreDataType<T> = {
+export type CacheStoreData<T> = {
   value: T;
   expiredAt: number;
 };
@@ -19,7 +19,7 @@ export class CacheStore {
   }
 
   public async get<T>(key: string) {
-    const storeValue = await this.store.getItem<CacheStoreDataType<T>>(key);
+    const storeValue = await this.store.getItem<CacheStoreData<T>>(key);
     if (!storeValue) {
       return null;
     }
@@ -35,7 +35,7 @@ export class CacheStore {
   public async set<T>(key: string, value: T) {
     const expiredAt = Date.now() + this.cacheDurationInMs;
     const storeValue = { value, expiredAt };
-    return this.store.setItem<CacheStoreDataType<T>>(key, storeValue);
+    return this.store.setItem<CacheStoreData<T>>(key, storeValue);
   }
 
   public async remove(key: string) {

@@ -89,3 +89,17 @@ export function truncateText(text: string, maxLength: number): string {
   if (text.length <= maxLength) return text;
   return text.slice(0, maxLength) + "...";
 }
+
+export async function copyToClipboard(text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch (error) {
+    console.error("Failed to copy text to clipboard:", error);
+    if (error instanceof DOMException && error.name === "NotAllowedError") {
+      console.error("Try using an alternative method.");
+      return document.execCommand("copy", true, text);
+    }
+    return false;
+  }
+}

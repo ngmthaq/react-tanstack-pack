@@ -1,7 +1,7 @@
 import axios, { type AxiosInstance, type AxiosRequestConfig } from "axios";
 
 export class Api {
-  private instance: AxiosInstance;
+  protected instance: AxiosInstance;
 
   public constructor() {
     this.instance = axios.create();

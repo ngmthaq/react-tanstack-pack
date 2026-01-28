@@ -11,6 +11,10 @@ export const createPostResponseSchema = Yup.object({
   userId: Yup.number().required(),
 }).required();
 
+export type CreatePostResponseSchema = Yup.InferType<
+  typeof createPostResponseSchema
+>;
+
 export function useCreatePost() {
   return useMutation({
     mutationKey: [API_ENDPOINTS.post.createPost],

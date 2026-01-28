@@ -1,10 +1,15 @@
 import { useMutation } from "@tanstack/react-query";
+import * as Yup from "yup";
 import { API_ENDPOINTS } from "@/constants";
 import type { PostFormSchema } from "@/forms";
 import { api, ApiException } from "@/utils";
 import { createPostResponseSchema } from "./useCreatePost";
 
 export const updatePostResponseSchema = createPostResponseSchema.clone();
+
+export type UpdatePostResponseSchema = Yup.InferType<
+  typeof updatePostResponseSchema
+>;
 
 export function useUpdatePost() {
   return useMutation({

@@ -1,7 +1,10 @@
 import { useEffect } from "react";
-import { eventBus } from "@/utils";
+import { eventBus, type EventBusListener } from "@/utils";
 
-export function useEventBusListener(event: string, listener: CallableFunction) {
+export function useEventBusListener<T>(
+  event: string,
+  listener: EventBusListener<T>,
+) {
   useEffect(() => {
     const cleanup = eventBus.on(event, listener);
     return () => {

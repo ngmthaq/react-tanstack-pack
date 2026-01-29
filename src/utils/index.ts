@@ -9,3 +9,4 @@ export * from "./storage";
 export * from "./text";
 export * from "./debugger";
 export * from "./customEvent";
+export * from "./router";

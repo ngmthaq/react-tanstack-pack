@@ -1,4 +1,4 @@
-import { router } from "./main";
+import { router } from "./utils/router";
 
 declare global {
   interface Window {

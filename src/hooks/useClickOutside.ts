@@ -7,7 +7,7 @@ export function useClickOutside(
   useEffect(() => {
     if (ref.current === null) return;
 
-    const handleClickOutside = (event: PointerEvent) => {
+    const handleClickOutside = (event: Event) => {
       if (ref.current && !ref.current.contains(event.target as Node)) {
         callback();
       }
